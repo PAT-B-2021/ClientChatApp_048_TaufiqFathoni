@@ -12,7 +12,7 @@ namespace ClientChatApp_048_TaufiqFathoni.ServiceReference1 {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IServiceCallback")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IServiceCallback", CallbackContract=typeof(ClientChatApp_048_TaufiqFathoni.ServiceReference1.IServiceCallbackCallback))]
     public interface IServiceCallback {
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServiceCallback/gabung")]
@@ -29,30 +29,38 @@ namespace ClientChatApp_048_TaufiqFathoni.ServiceReference1 {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface IServiceCallbackCallback {
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServiceCallback/pesanKirim")]
+        void pesanKirim(string use, string pesan);
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface IServiceCallbackChannel : ClientChatApp_048_TaufiqFathoni.ServiceReference1.IServiceCallback, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class ServiceCallbackClient : System.ServiceModel.ClientBase<ClientChatApp_048_TaufiqFathoni.ServiceReference1.IServiceCallback>, ClientChatApp_048_TaufiqFathoni.ServiceReference1.IServiceCallback {
+    public partial class ServiceCallbackClient : System.ServiceModel.DuplexClientBase<ClientChatApp_048_TaufiqFathoni.ServiceReference1.IServiceCallback>, ClientChatApp_048_TaufiqFathoni.ServiceReference1.IServiceCallback {
         
-        public ServiceCallbackClient(System.ServiceModel.InstanceContext context) {
+        public ServiceCallbackClient(System.ServiceModel.InstanceContext callbackInstance) : 
+                base(callbackInstance) {
         }
         
-        public ServiceCallbackClient(string endpointConfigurationName) : 
-                base(endpointConfigurationName) {
+        public ServiceCallbackClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName) : 
+                base(callbackInstance, endpointConfigurationName) {
         }
         
-        public ServiceCallbackClient(string endpointConfigurationName, string remoteAddress) : 
-                base(endpointConfigurationName, remoteAddress) {
+        public ServiceCallbackClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName, string remoteAddress) : 
+                base(callbackInstance, endpointConfigurationName, remoteAddress) {
         }
         
-        public ServiceCallbackClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
-                base(endpointConfigurationName, remoteAddress) {
+        public ServiceCallbackClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(callbackInstance, endpointConfigurationName, remoteAddress) {
         }
         
-        public ServiceCallbackClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
-                base(binding, remoteAddress) {
+        public ServiceCallbackClient(System.ServiceModel.InstanceContext callbackInstance, System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(callbackInstance, binding, remoteAddress) {
         }
         
         public void gabung(string username) {
